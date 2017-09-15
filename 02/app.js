@@ -12,7 +12,7 @@ for (var i = 1; i <= 100; i++)
 }
 
 // 3. 구구단 프로그램 작성
-console.log("1번 문제");
+console.log("3번 문제");
 for (var i = 2; i <= 9; i++)
 {
   for (var j = 1; j <= 9; j++)
