@@ -1,20 +1,33 @@
 var blackBoxs = document.getElementsByClassName('black');
 var whiteBoxs = document.getElementsByClassName('white');
 
-var eventTarget;
+var divs = document.querySelectorAll('#board div');
+
+var beforeTarget = divs[0];
+var beforeColor;
+
 function checkRed(event)
 {
+  console.log("-----------------");
   console.log("check");
 
-  if (!eventTarget)
+  // beforeTarget의 색 돌려놓기
+  if (beforeColor)
   {
-    if (eventTarget.class=='black')
-      eventTarget.style.backgroundColor='black';
-    else
-      eventTarget.style.backgroundColor='white';
+    console.log(beforeColor + "로 돌리기");
+    beforeTarget.style.backgroundColor = beforeColor;
+  }
+  else {
+    console.log("beforeColor가 없습니다.");
   }
 
-  eventTarget = event.currentTarget;
+  // beforeTarget update
+  beforeTarget = event.currentTarget;
+  beforeColor = event.currentTarget.style.backgroundColor;
+  console.log("타겟 : " + beforeTarget);
+  console.log("타겟컬러 : " + beforeColor);
+
+  // currentTarget의 색 red로 전환
   event.currentTarget.style.backgroundColor = 'red';
 }
 
