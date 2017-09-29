@@ -23,9 +23,15 @@ function checkRed(event)
 
   // beforeTarget update
   beforeTarget = event.currentTarget;
-  beforeColor = event.currentTarget.style.backgroundColor;
+  if (event.currentTarget.className == 'black')
+    beforeColor = 'black';
+  else if (event.currentTarget.className == 'white')
+    beforeColor = 'white';
+
   console.log("타겟 : " + beforeTarget);
   console.log("타겟컬러 : " + beforeColor);
+
+
 
   // currentTarget의 색 red로 전환
   event.currentTarget.style.backgroundColor = 'red';
