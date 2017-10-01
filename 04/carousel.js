@@ -1,3 +1,5 @@
+var THREE = 3;
+var page = 0;
 
 var todayPhoto = [
     {"url":"http://media.daum.net/photo/2841","img":"http://icon.daumcdn.net/w/c/12/05/82877085750988319.jpeg","title":"&quot;뜨면 끝장&quot; 최강 공격헬기 성능이 설마","id":"20120516082207657"}
@@ -13,9 +15,10 @@ var todayPhoto = [
 var wrap = document.getElementById('wrap');
 
 var str = '';
-for(var i=0; i<todayPhoto.length; i++){
-
-    str += '<img src="'+todayPhoto[i].img+'"> ';
+for(var i=page*3; i<(page*3)+THREE; i++){
+    try {
+      str += '<img src="'+todayPhoto[i].img+'"> ';
+    } catch (e) { }
 }
 
 wrap.innerHTML = str;
