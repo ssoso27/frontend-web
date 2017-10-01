@@ -17,7 +17,6 @@ var next = document.getElementById('next');
 var currentPage = document.getElementById('currentPage');
 var totalPage = document.getElementById('totalPage');
 
-var str = '';
 
 // 사진 보이기
 function showPhoto()
@@ -26,6 +25,8 @@ function showPhoto()
 
   var start = page * photonum;
   var end = start + photonum;
+  
+  var str = '';
 
   for(var i=start; i<end; i++){
       try {
@@ -38,14 +39,16 @@ function showPhoto()
 
 // 버튼 설정
 prev.addEventListener('click', function() {
-  if (page>0) page--;
-  console.log("이전" + page);
-  showPhoto();
+  if (page>0) {
+    page--;
+    showPhoto();
+  }
 });
 next.addEventListener('click', function() {
-  if (page<2) page++;
-  console.log("다음" + page);
-  showPhoto();
+  if (page<2) {
+    page++;
+    showPhoto();
+  }
 });
 
 showPhoto();
