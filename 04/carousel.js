@@ -14,7 +14,7 @@ var page = 0;
 
 var prev = document.getElementById('prev');
 var next = document.getElementById('next');
-var currentPage = document.getElementById('currentPage');
+
 var totalPage = document.getElementById('totalPage');
 
 
@@ -22,10 +22,11 @@ var totalPage = document.getElementById('totalPage');
 function showPhoto()
 {
   var wrap = document.getElementById('wrap');
+  var currentPage = document.getElementById('currentPage');
 
   var start = page * photonum;
   var end = start + photonum;
-  
+
   var str = '';
 
   for(var i=start; i<end; i++){
@@ -35,6 +36,7 @@ function showPhoto()
   }
 
   wrap.innerHTML = str;
+  currentPage.innerHTML = page + 1;
 }
 
 // 버튼 설정
@@ -51,4 +53,5 @@ next.addEventListener('click', function() {
   }
 });
 
+totalPage.innerHTML = 3;
 showPhoto();
