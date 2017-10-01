@@ -1,6 +1,3 @@
-var THREE = 3;
-var page = 0;
-
 var todayPhoto = [
     {"url":"http://media.daum.net/photo/2841","img":"http://icon.daumcdn.net/w/c/12/05/82877085750988319.jpeg","title":"&quot;뜨면 끝장&quot; 최강 공격헬기 성능이 설마","id":"20120516082207657"}
     ,{"url":"http://media.daum.net/entertain/photo/gallery/?gid=100320","img":"http://icon.daumcdn.net/w/c/12/05/82876693901189319.jpeg","title":"&#39;오늘만&#39; 필리핀 새댁 5개국어 능통 엄친딸","id":"20120516091011626"}
@@ -12,13 +9,43 @@ var todayPhoto = [
     ,{"url":"http://sports.media.daum.net/general/gallery/STARKIMYUNA/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81727815537682839.jpeg","title":"&#39;교생&#39; 김연아, 스승의날에도 인기폭발","id":"20120516092003892"}
 ];
 
-var wrap = document.getElementById('wrap');
+var photonum = 3; // 보여지는 이미지 개수
+var page = 0;
+
+var prev = document.getElementById('prev');
+var next = document.getElementById('next');
+var currentPage = document.getElementById('currentPage');
+var totalPage = document.getElementById('totalPage');
 
 var str = '';
-for(var i=page*3; i<(page*3)+THREE; i++){
-    try {
-      str += '<img src="'+todayPhoto[i].img+'"> ';
-    } catch (e) { }
+
+// 사진 보이기
+function showPhoto()
+{
+  var wrap = document.getElementById('wrap');
+
+  var start = page * photonum;
+  var end = start + photonum;
+
+  for(var i=start; i<end; i++){
+      try {
+        str += '<img src="'+todayPhoto[i].img+'"> ';
+      } catch (e) { }
+  }
+
+  wrap.innerHTML = str;
 }
 
-wrap.innerHTML = str;
+// 버튼 설정
+prev.addEventListener('click', function() {
+  if (page>0) page--;
+  console.log("이전" + page);
+  showPhoto();
+});
+next.addEventListener('click', function() {
+  if (page<2) page++;
+  console.log("다음" + page);
+  showPhoto();
+});
+
+showPhoto();
