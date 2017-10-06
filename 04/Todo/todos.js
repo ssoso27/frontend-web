@@ -8,8 +8,6 @@ function getDom(id)
 var todoStringField = getDom('todoString');
 todoStringField.addEventListener('keyup', function(event)
 {
-  console.log('todoStringField keyup!');
-
   // 엔터 입력 -> 새로운 todo값 저장
   if (event.keyCode === 13)
   {
@@ -19,5 +17,15 @@ todoStringField.addEventListener('keyup', function(event)
     todoStringField.value = "";
 
     console.log('새로운 todo : ', newTodo);
+
+    // innerHTML로 집어넣기
+    var listDom = getDom('todoList');
+
+    listDom.innerHTML += '\
+    <li>\
+      <button class="delete">x</button>\
+      <input type="checkbox" class="toggle-checked">\
+      <span class="text"> ' + newTodo + ' </span>\
+    </li>'
   }
 });
