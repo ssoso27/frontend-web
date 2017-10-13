@@ -10,16 +10,25 @@ function addTodo(event)
  // 엔터 입력 -> 새로운 todo값 저장
  if (event.keyCode === 13)
  {
-   console.log(todoStringField.value);
-
    var newTodo = todoStringField.value;
    todoStringField.value = "";
 
-   console.log('새로운 todo : ', newTodo);
-
    // innerHTML로 집어넣기
-   var listDom = getDom('todoList');
-
    listDom.innerHTML += tmpl(todoTemplateHtml, {todo: newTodo});
+   saveData(listDom.innerHTML);
  }
+}
+
+// 저장소의 데이터 로드
+function loadData()
+{
+  console.log('loadData()');
+  return localStorage.getItem('todoHtml');
+}
+
+// 저장소에 데이터 저장
+function saveData(html)
+{
+  console.log('saveData()');
+  localStorage.setItem('todoHtml', html);
 }
