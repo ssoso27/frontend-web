@@ -20,11 +20,6 @@ function addTodo(event)
    // innerHTML로 집어넣기
    var listDom = getDom('todoList');
 
-   listDom.innerHTML += '\
-   <li>\
-     <button class="delete">x</button>\
-     <input type="checkbox" class="toggle-checked">\
-     <span class="text"> ' + newTodo + ' </span>\
-   </li>'
+   listDom.innerHTML += tmpl(todoTemplateHtml, {todo: newTodo});
  }
 }
