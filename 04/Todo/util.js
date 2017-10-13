@@ -7,16 +7,32 @@ function getDom(id)
 // todo를 저장하는 함수
 function addTodo(event)
 {
- // 엔터 입력 -> 새로운 todo값 저장
- if (event.keyCode === 13)
- {
-   var newTodo = todoStringField.value;
-   todoStringField.value = "";
+ // 엔터키가 아니면 함수 중지\
+if (event.keyCode !== 13 || todoStringField.value === "")
+{
+  event.stopPropagation(); // 이벤트 전파 중지
+  return;
+}
 
-   // innerHTML로 집어넣기
-   listDom.innerHTML += tmpl(todoTemplateHtml, {todo: newTodo});
-   saveData(listDom.innerHTML);
- }
+ var newTodo = todoStringField.value;
+ todoStringField.value = "";
+
+ // innerHTML로 집어넣기
+ listDom.innerHTML += tmpl(todoTemplateHtml, {todo: newTodo});
+ saveData();
+
+}
+
+function checkDelete(event)
+{
+  if(event.target.className !== 'delete') return;
+
+  var deleteBtn = event.target;
+
+  // 버튼의 상위 엘리멘트 <li> 제거
+  deleteBtn.parentElement.remove();
+
+  saveData();
 }
 
 // 저장소의 데이터 로드
@@ -27,8 +43,8 @@ function loadData()
 }
 
 // 저장소에 데이터 저장
-function saveData(html)
+function saveData()
 {
   console.log('saveData()');
-  localStorage.setItem('todoHtml', html);
+  localStorage.setItem('todoHtml', listDom.innerHTML);
 }
