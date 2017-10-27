@@ -7,13 +7,17 @@
   <title>Document</title>
 
   <style media="screen">
-    div { width: 500px; height: 2000px; background-color: #d3d3d3;}
+    .dummy { width: 300px; height: 2000px; background-color: #d3d3d3;}
+    .goTop { position:fixed; bottom: 10px; right: 20px;}
   </style>
 </head>
 <body>
   <h1>스크롤을 아래로 천천히 움직여보세요</h1>
 
-  <div class="dummy"></div>
+  <div class="dummy">dummy</div>
+  <div class="goTop">위로</div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script type="text/javascript" src="scroll.js"></script>
 </body>
 </html>
