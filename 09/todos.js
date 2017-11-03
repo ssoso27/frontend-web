@@ -2,8 +2,8 @@
 console.log("연결");
 
 var inputStringField = document.getElementById('inputString');
-var todoString ="";
-var lists = document.getElementsByClassName('.container ul');
+var todoString = "";
+var lists = document.getElementById('list');
 
 console.log(lists);
 
@@ -12,6 +12,15 @@ function addli()
 {
   console.log('add li!');
 
+  var str = '';
+
+  str += '<li>';
+  str += '<button class=\"delete\">×</button>';
+  str += '<input type=\"checkbox\" class=\"toggle-checked\">';
+  str += '<span class=\"text\">' + todoString + '</span>';
+  str += '</li>';
+
+  lists.innerHTML = str;
 }
 
 inputStringField.addEventListener('keyup', function(event)
