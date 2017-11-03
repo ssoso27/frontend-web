@@ -3,11 +3,15 @@ console.log("연결");
 
 var inputStringField = document.getElementById('inputString');
 var todoString ="";
+var lists = document.getElementsByClassName('.container ul');
+
+console.log(lists);
 
 // div.container -> ul 안에 새로운 li 추가
 function addli()
 {
   console.log('add li!');
+
 }
 
 inputStringField.addEventListener('keyup', function(event)
