@@ -14,7 +14,7 @@ function addlist()
   str += '<span class=\"text\">' + todoString + '</span>';
   str += '</li>';
 
-  lists.innerHTML = str;
+  lists.innerHTML += str;
 }
 
 function addTodo(event)
