@@ -2,6 +2,7 @@
 var inputStringField = document.getElementById('inputString');
 var todoString = "";
 var lists = document.getElementById('list');
+var btn_delete = document.getElementByClassName('delete');
 
 // div.container -> ul 안에 새로운 li 추가
 function addlist()
@@ -29,5 +30,10 @@ function addTodo(event)
   }
 };
 
+function deleteTodo(event)
+{
+
+}
 
 inputStringField.addEventListener('keyup', addTodo);
+btn_delete.addEventListener('click', deleteTodo);
