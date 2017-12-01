@@ -1,7 +1,7 @@
 function fullScreen()
 {
   if (screenfull.enabled) {
-  	screenfull.request();
+  	screenfull.request(document.querySelector('img'));
   }
 }
 
