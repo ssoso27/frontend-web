@@ -13,7 +13,15 @@ if ("geolocation" in navigator) {
   console.log("사용불가");
 }
 
-// 사용자 위치 확인 -> do_something() 실행
+// 사용자 현재 위치 확인 -> do_something() 실행
 navigator.geolocation.getCurrentPosition(function(position) {
   do_something(position.coords.latitude, position.coords.longitude);
 });
+
+// 현재 위치 갱신
+var warchID = navigator.geolocation.watchPosition(function(position) {
+  do_something(position.coords.latitude, position.coords.longitude);
+})
+
+// 갱신 종료
+// navigator.geolocation.clearWatch(watchID);
