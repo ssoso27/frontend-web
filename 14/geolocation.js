@@ -1,4 +1,10 @@
 // 지오로케이션
+function do_something(latitude, longitude)
+{
+  console.log("do_something");
+  console.log(latitude);
+}
+
 if ("geolocation" in navigator) {
   /* 지오로케이션 사용 가능 */
   console.log("사용가능");
